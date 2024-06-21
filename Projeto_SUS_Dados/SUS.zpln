@@ -1,0 +1,1788 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "import org.apache.spark.sql.SparkSession\r\nval spark = SparkSession\r\n\r\n  .builder()\r\n  .enableHiveSupport()\r\n  .getOrCreate()\r\n\r\nval sqlcontext = spark.sqlContext\r\n\r\nsqlcontext",
+      "user": "anonymous",
+      "dateUpdated": "2023-11-26T14:41:04+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.sql.SparkSession\n\u001b[1m\u001b[34mspark\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SparkSession\u001b[0m = org.apache.spark.sql.SparkSession@171a7510\n\u001b[1m\u001b[34msqlcontext\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SQLContext\u001b[0m = org.apache.spark.sql.SQLContext@45c40b86\n\u001b[1m\u001b[34mres1\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.SQLContext\u001b[0m = org.apache.spark.sql.SQLContext@45c40b86\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701009625665_1863789620",
+      "id": "paragraph_1701009625665_1863789620",
+      "dateCreated": "2023-11-26T14:40:25+0000",
+      "dateStarted": "2023-11-26T14:41:04+0000",
+      "dateFinished": "2023-11-26T14:41:39+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:20983"
+    },
+    {
+      "text": "%pyspark\r\nfrom pyspark.sql import SQLContext\r\nsqlcontext = SQLContext(sc)\r\nsqlcontext",
+      "user": "anonymous",
+      "dateUpdated": "2023-11-26T14:48:00+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<pyspark.sql.context.SQLContext at 0x7fc7c6b7f650>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701009664259_421137978",
+      "id": "paragraph_1701009664259_421137978",
+      "dateCreated": "2023-11-26T14:41:04+0000",
+      "dateStarted": "2023-11-26T14:48:00+0000",
+      "dateFinished": "2023-11-26T14:48:06+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:20984"
+    },
+    {
+      "text": "%spark\r\nval dados = spark.sqlContext\r\n                .read\r\n                .option(\"header\", true)\r\n                .option(\"delimiter\", \";\")  \r\n                .option(\"encoding\", \"latin1\")\r\n                .csv(\"file:/tmp/files/dadosClean.csv\")  \r\n\r\ndados.show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-11-26T15:01:05+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+---------------+--------------------+-------------------------+----------------+--------------------+---------------------+----------------------------------+-----------------------------------+-----------------------------------+--------------------------------------------+------------------------+-----------------------+-------------+----------------+--------------------+------------+--------------------+-------+--------------------+------------------+---------+-----------------+-------------+--------------+---------+----------------+\n|Sexo|Tipo de Unidade|Descrição da Unidade|Descrição do Procedimento|Descrição do CBO|    Descrição do CID|Solicitação de Exames|Qtde Prescrita Farmácia Curitibana|Qtde Dispensada Farmácia Curitibana|Qtde de Medicamento Não Padronizado|Encaminhamento para Atendimento Especialista|Desencadeou Internamento|Tratamento no Domicílio|Abastecimento|Energia Elétrica|   Tipo de Habitação|Destino Lixo|         Fezes/Urina|Cômodos|   Em Caso de Doença|Meio de Transporte|Municício|           Bairro|Nacionalidade|origem_usuario|residente|cod_profissional|\n+----+---------------+--------------------+-------------------------+----------------+--------------------+---------------------+----------------------------------+-----------------------------------+-----------------------------------+--------------------------------------------+------------------------+-----------------------+-------------+----------------+--------------------+------------+--------------------+-------+--------------------+------------------+---------+-----------------+-------------+--------------+---------+----------------+\n|   M|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|NASOFARINGITE AGU...|                  Nao|                                41|                                 31|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      4|    UNIDADE DE SAUDE|      ONIBUS,CARRO| CURITIBA|    SITIO CERCADO|   Brasileira|             1|        1|          120974|\n|   F|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|OUTRAS DORES ABDO...|                  Sim|                                23|                                  0|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|  MADEIRA APARELHADA|    COLETADO|   SISTEMA DE ESGOTO|      6|    UNIDADE DE SAUDE|            ONIBUS| CURITIBA|    SITIO CERCADO|   Brasileira|             1|        1|           27628|\n|   F|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|       CISTITE AGUDA|                  Nao|                                 9|                                  0|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      5|    UNIDADE DE SAUDE|            ONIBUS| CURITIBA|    SITIO CERCADO|   Brasileira|             1|        1|          122138|\n|   M|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|NASOFARINGITE AGU...|                  Sim|                                31|                                 31|                                  3|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      7|FARMACIA,HOSPITAL...|            ONIBUS| CURITIBA|    SITIO CERCADO|   Brasileira|             1|        1|           27628|\n|   F|            UPA|       UPA TATUQUARA|     ATENDIMENTO DE UR...|  MEDICO CLINICO|ABSCESSO CUTANEO,...|                  Sim|                                10|                                  0|                                  3|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|DIRETO PARA RIO, ...|      5|    UNIDADE DE SAUDE|      ONIBUS,CARRO| CURITIBA| CAMPO DE SANTANA|   Brasileira|             1|        1|          109673|\n|   F|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|       DOR EM MEMBRO|                  Sim|                                82|                                 40|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      4|UNIDADE DE SAUDE,...|      ONIBUS,CARRO| CURITIBA|            XAXIM|   Brasileira|             1|        1|          119652|\n|   M|            UPA|          UPA CAJURU|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|ENTORSE E DISTENS...|                  Sim|                                 0|                                  0|                                 32|                                         Nao|                     Nao|               CLORACAO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      9|    UNIDADE DE SAUDE|            ONIBUS| CURITIBA|           CAJURU|   Brasileira|             1|        1|          117755|\n|   M|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|HEPATITE AGUDA B ...|                  Nao|                                 6|                                  0|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      6|HOSPITAL,UNIDADE ...|      ONIBUS,CARRO| CURITIBA|    SITIO CERCADO|   Brasileira|             1|        1|          122138|\n|   F|            UPA|       UPA TATUQUARA|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|INFECCAO AGUDA DA...|                  Sim|                                24|                                 20|                                  2|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      5|    UNIDADE DE SAUDE|            ONIBUS| CURITIBA|        TATUQUARA|   Brasileira|             1|        2|          109673|\n|   F|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|TAQUICARDIA SUPRA...|                  Sim|                                 2|                                  0|                                 10|                                         Nao|                     Sim|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      5|    UNIDADE DE SAUDE|     OUTROS,ONIBUS| CURITIBA|    SITIO CERCADO|   Brasileira|             1|        1|           27628|\n|   F|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|INFECCAO AGUDA DA...|                  Sim|                                94|                                 70|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      7|    UNIDADE DE SAUDE|            ONIBUS| CURITIBA|      PINHEIRINHO|   Brasileira|             1|        1|          119652|\n|   F|            UPA|  UPA CAMPO COMPRIDO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|               TOSSE|                  Nao|                                22|                                 40|                                  4|                                         Nao|                     Nao|               CLORACAO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      6|            HOSPITAL|            ONIBUS| CURITIBA|CIDADE INDUSTRIAL|   Brasileira|             1|        1|          112878|\n|   M|            UPA|UPA CIDADE INDUST...|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|COLICA NEFRETICA ...|                  Sim|                                38|                                 38|                                 36|                                         Nao|                     Nao|              FILTRACAO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      4|    UNIDADE DE SAUDE|            ONIBUS| CURITIBA|       FAZENDINHA|   Brasileira|             1|        1|          115423|\n|   F|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|PESSOA EM BOA SAU...|                  Nao|                                 0|                                  0|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Nao|      OUTRO MATERIAL|      OUTROS|              OUTROS|      5|              OUTROS|      OUTROS,METRO| CURITIBA|   ALTO BOQUEIRAO|   Brasileira|             1|        1|          120974|\n|   F|            UPA|     UPA PINHEIRINHO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|DIARREIA E GASTRO...|                  Nao|                                46|                                  0|                                  2|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      5|    UNIDADE DE SAUDE|             CARRO| CURITIBA|CIDADE INDUSTRIAL|   Brasileira|             1|        1|          111981|\n|   F|            UPA|  UPA CAMPO COMPRIDO|     ATENDIMENTO DE UR...|  MEDICO CLINICO| LUMBAGO COM CIATICA|                  Nao|                                 0|                                  0|                                 66|                                         Nao|                     Nao|              FILTRACAO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      5|UNIDADE DE SAUDE,...|            ONIBUS| CURITIBA|CIDADE INDUSTRIAL|   Brasileira|             1|        1|           42587|\n|   M|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|OTITE MEDIA NAO E...|                  Nao|                               124|                                 74|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      5|HOSPITAL,UNIDADE ...|      ONIBUS,CARRO| CURITIBA|    SITIO CERCADO|   Brasileira|             1|        1|          120974|\n|   F|            UPA|     UPA PINHEIRINHO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|GASTROENTERITE E ...|                  Nao|                               102|                                126|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      6|    UNIDADE DE SAUDE|      ONIBUS,CARRO| CURITIBA|           UMBARA|   Brasileira|             1|        1|          120797|\n|   F|            UPA|   UPA SITIO CERCADO|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|INFECCAO AGUDA DA...|                  Nao|                                 2|                                  2|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      5|    UNIDADE DE SAUDE|      ONIBUS,CARRO| CURITIBA|    SITIO CERCADO|   Brasileira|             1|        2|          119652|\n|   M|            UPA|       UPA TATUQUARA|     ATENDIMENTO MEDIC...|  MEDICO CLINICO|       DOR EM MEMBRO|                  Sim|                                52|                                 20|                                  0|                                         Nao|                     Nao|         SEM TRATAMENTO| REDE PÚBLICA|             Sim|TIJOLO/ALVENARIA ...|    COLETADO|   SISTEMA DE ESGOTO|      6|    UNIDADE DE SAUDE|      ONIBUS,CARRO| CURITIBA|      PINHEIRINHO|   Brasileira|             1|        1|          109673|\n+----+---------------+--------------------+-------------------------+----------------+--------------------+---------------------+----------------------------------+-----------------------------------+-----------------------------------+--------------------------------------------+------------------------+-----------------------+-------------+----------------+--------------------+------------+--------------------+-------+--------------------+------------------+---------+-----------------+-------------+--------------+---------+----------------+\nonly showing top 20 rows\n\n\u001b[1m\u001b[34mdados\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [Sexo: string, Tipo de Unidade: string ... 25 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=6",
+              "$$hashKey": "object:21616"
+            },
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=7",
+              "$$hashKey": "object:21617"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701010080606_1687958918",
+      "id": "paragraph_1701010080606_1687958918",
+      "dateCreated": "2023-11-26T14:48:00+0000",
+      "dateStarted": "2023-11-26T15:01:05+0000",
+      "dateFinished": "2023-11-26T15:01:06+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:20985"
+    },
+    {
+      "text": "dados.groupBy(\"Sexo\").count().orderBy($\"count\".desc).show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-11-26T15:09:53+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=26",
+              "$$hashKey": "object:22735"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701010208182_1755922492",
+      "id": "paragraph_1701010208182_1755922492",
+      "dateCreated": "2023-11-26T14:50:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:20986",
+      "dateFinished": "2023-11-26T15:09:55+0000",
+      "dateStarted": "2023-11-26T15:09:53+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+------+\n|Sexo| count|\n+----+------+\n|   F|655844|\n|   M|392731|\n+----+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "\ndados.groupBy(\"Tipo de Unidade\").count().orderBy($\"count\".desc).show()",
+      "user": "anonymous",
+      "dateUpdated": "2023-11-26T15:10:08+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=27",
+              "$$hashKey": "object:22807"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701010968659_1942463057",
+      "id": "paragraph_1701010968659_1942463057",
+      "dateCreated": "2023-11-26T15:02:48+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:21632",
+      "dateFinished": "2023-11-26T15:10:10+0000",
+      "dateStarted": "2023-11-26T15:10:08+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------------+------+\n|Tipo de Unidade| count|\n+---------------+------+\n|         BASICO|725943|\n|            UPA|291014|\n|          SIACE| 31618|\n+---------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=28",
+              "$$hashKey": "object:22874"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011116203_583425944",
+      "id": "paragraph_1701011116203_583425944",
+      "dateCreated": "2023-11-26T15:05:16+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:21907",
+      "text": "dados.groupBy(\"Descrição do Procedimento\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:10:16+0000",
+      "dateFinished": "2023-11-26T15:10:19+0000",
+      "dateStarted": "2023-11-26T15:10:16+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------------+------+\n|Descrição do Procedimento| count|\n+-------------------------+------+\n|     CONSULTA MEDICA E...|636510|\n|     ATENDIMENTO MEDIC...|220752|\n|     ATENDIMENTO DE UR...| 70170|\n|     RESPOSTA TELERREG...| 37454|\n|     CONSULTA MEDICA E...| 31774|\n|       CONSULTA PRE-NATAL| 22087|\n|     AVALIACAO DO DESE...| 14541|\n|     PROCEDIMENTO ADMI...|  6519|\n|     CONSULTA/ATENDIME...|  2768|\n|       CONSULTA PUERPERAL|  1643|\n|     ATENDIMENTO DE UR...|   774|\n|     TELECONSULTA NA A...|   762|\n|     CONSULTA/ATENDIME...|   493|\n|     TELECONSULTA MEDI...|   441|\n|     CONSULTA PARA AVA...|   338|\n|     AVALIACAO ANTROPO...|   296|\n|     ATENDIMENTO DE UR...|   284|\n|     TELERREGULAÇÃO/TE...|   245|\n|     CONSULTA MEDICA E...|   143|\n|     ASSISTENCIA DOMIC...|   138|\n+-------------------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=29",
+              "$$hashKey": "object:22923"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011136728_89473461",
+      "id": "paragraph_1701011136728_89473461",
+      "dateCreated": "2023-11-26T15:05:36+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:22110",
+      "text": "dados.groupBy(\"Descrição do CID\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:10:26+0000",
+      "dateFinished": "2023-11-26T15:10:29+0000",
+      "dateStarted": "2023-11-26T15:10:26+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+------+\n|    Descrição do CID| count|\n+--------------------+------+\n|  EXAME MEDICO GERAL|118554|\n|EMISSAO DE PRESCR...| 75943|\n|HIPERTENSAO ESSEN...| 39759|\n|INFECCAO AGUDA DA...| 34134|\n|EXAME DE ROTINA D...| 33996|\n|EXAME NAO ESPECIF...| 23674|\n|DIARREIA E GASTRO...| 19214|\n|    DOR LOMBAR BAIXA| 18333|\n|AMIGDALITE AGUDA ...| 16429|\n|NASOFARINGITE AGU...| 16193|\n|ANSIEDADE GENERAL...| 15836|\n|PESSOA QUE CONSUL...| 14185|\n|            CEFALEIA| 12697|\n|SUPERVISAO DE GRA...| 12130|\n|               TOSSE| 11915|\n|PROCEDIMENTO NAO ...| 10463|\n|OUTRAS DORES ABDO...|  9623|\n|       DOR EM MEMBRO|  9617|\n|DIABETES MELLITUS...|  9338|\n|EXAME DE SEGUIMEN...|  8567|\n+--------------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=30",
+              "$$hashKey": "object:22988"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011162048_1403982877",
+      "id": "paragraph_1701011162048_1403982877",
+      "dateCreated": "2023-11-26T15:06:02+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:22283",
+      "text": "dados.groupBy(\"Bairro\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:11:59+0000",
+      "dateFinished": "2023-11-26T15:12:02+0000",
+      "dateStarted": "2023-11-26T15:11:59+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------------+------+\n|           Bairro| count|\n+-----------------+------+\n|CIDADE INDUSTRIAL|144801|\n|    SITIO CERCADO| 88936|\n|           CAJURU| 63414|\n|        TATUQUARA| 51952|\n|          UBERABA| 43887|\n|        BOQUEIRAO| 41415|\n|      PINHEIRINHO| 36789|\n| CAMPO DE SANTANA| 32850|\n|   ALTO BOQUEIRAO| 32809|\n|            XAXIM| 32403|\n|      BAIRRO ALTO| 29344|\n|    SANTA CANDIDA| 27140|\n|       NOVO MUNDO| 27008|\n|       CAPAO RASO| 24610|\n|         SAO BRAZ| 17460|\n|           CENTRO| 16195|\n|       FAZENDINHA| 16000|\n| SANTA FELICIDADE| 15955|\n|   CAMPO COMPRIDO| 15840|\n|       PILARZINHO| 15242|\n+-----------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=31",
+              "$$hashKey": "object:23044"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011305672_1508709340",
+      "id": "paragraph_1701011305672_1508709340",
+      "dateCreated": "2023-11-26T15:08:25+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:22448",
+      "text": "dados.groupBy(\"Nacionalidade\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:12:05+0000",
+      "dateFinished": "2023-11-26T15:12:07+0000",
+      "dateStarted": "2023-11-26T15:12:05+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------+-------+\n|Nacionalidade|  count|\n+-------------+-------+\n|   Brasileira|1013566|\n|  Estrangeiro|  22321|\n|Não informado|  12570|\n| Naturalizado|    118|\n+-------------+-------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=32",
+              "$$hashKey": "object:23160"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011358055_2075778547",
+      "id": "paragraph_1701011358055_2075778547",
+      "dateCreated": "2023-11-26T15:09:18+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:22561",
+      "text": "dados.groupBy(\"Encaminhamento para Atendimento Especialista\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:12:11+0000",
+      "dateFinished": "2023-11-26T15:12:13+0000",
+      "dateStarted": "2023-11-26T15:12:11+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------------------------------+------+\n|Encaminhamento para Atendimento Especialista| count|\n+--------------------------------------------+------+\n|                                         Nao|879705|\n|                                         Sim|168870|\n+--------------------------------------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=36",
+              "$$hashKey": "object:23553"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011531219_691716107",
+      "id": "paragraph_1701011531219_691716107",
+      "dateCreated": "2023-11-26T15:12:11+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:23055",
+      "text": "dados.groupBy(\"Descrição do CBO\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:14:10+0000",
+      "dateFinished": "2023-11-26T15:14:12+0000",
+      "dateStarted": "2023-11-26T15:14:10+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+------+\n|    Descrição do CBO| count|\n+--------------------+------+\n|      MEDICO CLINICO|358656|\n|  MEDICO GENERALISTA|261324|\n|MEDICO DA ESTRATE...|213486|\n|MEDICO DE FAMILIA...|109085|\n|     MEDICO PEDIATRA| 59431|\n|MEDICO GINECOLOGI...| 22431|\n| MEDICO NEUROLOGISTA|  4598|\n|   MEDICO PSIQUIATRA|  2947|\n|MEDICO ENDOCRINOL...|  2155|\n|   MEDICO UROLOGISTA|  2081|\n|MEDICO CARDIOLOGISTA|  1862|\n|MEDICO CIRURGIAO ...|  1666|\n| MEDICO DERMATOLOGIA|  1362|\n|MEDICO ACUPUNTURISTA|  1154|\n|MEDICO OFTALMOLOG...|  1021|\n|MEDICO COLOPROCTO...|   858|\n|MEDICO PNEUMOLOGISTA|   744|\n|     MEDICO GERIATRA|   650|\n|MEDICO ANESTESIOL...|   562|\n|MEDICO EM CIRURGI...|   544|\n+--------------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=34",
+              "$$hashKey": "object:24693"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011593991_1010051708",
+      "id": "paragraph_1701011593991_1010051708",
+      "dateCreated": "2023-11-26T15:13:13+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:23174",
+      "text": "dados.groupBy(\"Encaminhamento para Atendimento Especialista\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:21:27+0000",
+      "dateFinished": "2023-11-26T15:13:23+0000",
+      "dateStarted": "2023-11-26T15:13:20+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------------------------------+------+\n|Encaminhamento para Atendimento Especialista| count|\n+--------------------------------------------+------+\n|                                         Nao|879705|\n|                                         Sim|168870|\n+--------------------------------------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=37",
+              "$$hashKey": "object:23614"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011600784_804188172",
+      "id": "paragraph_1701011600784_804188172",
+      "dateCreated": "2023-11-26T15:13:20+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:23287",
+      "text": "dados.groupBy(\"Solicitação de Exames\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:15:12+0000",
+      "dateFinished": "2023-11-26T15:15:14+0000",
+      "dateStarted": "2023-11-26T15:15:12+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------------------+------+\n|Solicitação de Exames| count|\n+---------------------+------+\n|                  Sim|782904|\n|                  Nao|265671|\n+---------------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=39",
+              "$$hashKey": "object:23783"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011607573_1669411780",
+      "id": "paragraph_1701011607573_1669411780",
+      "dateCreated": "2023-11-26T15:13:27+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:23400",
+      "text": "dados.groupBy(\"Qtde Dispensada Farmácia Curitibana\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:16:10+0000",
+      "dateFinished": "2023-11-26T15:16:12+0000",
+      "dateStarted": "2023-11-26T15:16:10+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------------------------------+------+\n|Qtde Dispensada Farmácia Curitibana| count|\n+-----------------------------------+------+\n|                                  0|493245|\n|                                 40| 37777|\n|                                  2| 37365|\n|                                 20| 31259|\n|                                 60| 29665|\n|                                  4| 25630|\n|                                  6| 17749|\n|                                120| 16725|\n|                                  1| 14740|\n|                                 80| 13765|\n|                                 30| 12657|\n|                                 42| 11671|\n|                                  3| 10134|\n|                                 22|  9686|\n|                                180|  8414|\n|                                  8|  8271|\n|                                 90|  7307|\n|                                 10|  7004|\n|                                100|  6618|\n|                                 44|  6455|\n+-----------------------------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=40",
+              "$$hashKey": "object:23898"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011732229_465570109",
+      "id": "paragraph_1701011732229_465570109",
+      "dateCreated": "2023-11-26T15:15:32+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:23627",
+      "text": "dados.groupBy(\"Qtde de Medicamento Não Padronizado\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:16:53+0000",
+      "dateFinished": "2023-11-26T15:16:56+0000",
+      "dateStarted": "2023-11-26T15:16:53+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------------------------------+------+\n|Qtde de Medicamento Não Padronizado| count|\n+-----------------------------------+------+\n|                                  0|731028|\n|                                  2| 81652|\n|                                  1| 22357|\n|                                  4| 20983|\n|                                360| 18668|\n|                                 60| 16049|\n|                                720| 13284|\n|                                180| 12000|\n|                                120| 11935|\n|                                  3|  7192|\n|                                 20|  6965|\n|                                  6|  6802|\n|                               1080|  6506|\n|                                540|  5149|\n|                                 30|  5038|\n|                                240|  4290|\n|                               1440|  4181|\n|                                 10|  3683|\n|                                 40|  3542|\n|                                 90|  3025|\n+-----------------------------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=42",
+              "$$hashKey": "object:24070"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011813726_1907656546",
+      "id": "paragraph_1701011813726_1907656546",
+      "dateCreated": "2023-11-26T15:16:53+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:23796",
+      "text": "dados.groupBy(\"Tratamento no Domicílio\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:18:03+0000",
+      "dateFinished": "2023-11-26T15:18:05+0000",
+      "dateStarted": "2023-11-26T15:18:03+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------------------+------+\n|Tratamento no Domicílio| count|\n+-----------------------+------+\n|         SEM TRATAMENTO|490323|\n|               CLORACAO|224696|\n|              FILTRACAO|205996|\n|                   null|123537|\n|                FERVURA|  4023|\n+-----------------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=43",
+              "$$hashKey": "object:24185"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011850654_1259889472",
+      "id": "paragraph_1701011850654_1259889472",
+      "dateCreated": "2023-11-26T15:17:30+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:23911",
+      "text": "dados.groupBy(\"Abastecimento\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:18:31+0000",
+      "dateFinished": "2023-11-26T15:18:34+0000",
+      "dateStarted": "2023-11-26T15:18:31+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------+------+\n| Abastecimento| count|\n+--------------+------+\n|  REDE PÚBLICA|906071|\n|          null|124228|\n|        OUTROS| 16126|\n|POÇO ARTESIANO|  1696|\n|      CISTERNA|   246|\n|    CARRO PIPA|   208|\n+--------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=44",
+              "$$hashKey": "object:24307"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011911912_44861938",
+      "id": "paragraph_1701011911912_44861938",
+      "dateCreated": "2023-11-26T15:18:31+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:24083",
+      "text": "dados.groupBy(\"Energia Elétrica\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:19:05+0000",
+      "dateFinished": "2023-11-26T15:19:08+0000",
+      "dateStarted": "2023-11-26T15:19:05+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------------+------+\n|Energia Elétrica| count|\n+----------------+------+\n|             Sim|975668|\n|             Nao| 72907|\n+----------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=45",
+              "$$hashKey": "object:24440"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011945254_1151252291",
+      "id": "paragraph_1701011945254_1151252291",
+      "dateCreated": "2023-11-26T15:19:05+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:24207",
+      "text": "dados.groupBy(\"Tipo de Habitação\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:19:31+0000",
+      "dateFinished": "2023-11-26T15:19:34+0000",
+      "dateStarted": "2023-11-26T15:19:31+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+------+\n|   Tipo de Habitação| count|\n+--------------------+------+\n|TIJOLO/ALVENARIA ...|825482|\n|                null|123623|\n|  MADEIRA APARELHADA| 56355|\n|TIJOLO ALVENARIA ...| 27163|\n|      OUTRO MATERIAL| 10809|\n|MATERIAL APROVEITADO|  3116|\n|TAIPA COM REVESTI...|  1439|\n|TAIPA SEM REVESTI...|   404|\n|              PALHA |   184|\n+--------------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=46",
+              "$$hashKey": "object:24564"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701011971998_1656546647",
+      "id": "paragraph_1701011971998_1656546647",
+      "dateCreated": "2023-11-26T15:19:31+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:24332",
+      "text": "dados.groupBy(\"Destino Lixo\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:20:02+0000",
+      "dateFinished": "2023-11-26T15:20:05+0000",
+      "dateStarted": "2023-11-26T15:20:02+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------------+------+\n|      Destino Lixo| count|\n+------------------+------+\n|          COLETADO|911315|\n|              null|123875|\n|            OUTROS|  9662|\n|        CÉU ABERTO|  2456|\n|QUEIMADO/ENTERRADO|  1267|\n+------------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=47",
+              "$$hashKey": "object:24688"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012002647_260821763",
+      "id": "paragraph_1701012002647_260821763",
+      "dateCreated": "2023-11-26T15:20:02+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:24462",
+      "text": "dados.groupBy(\"Encaminhamento para Atendimento Especialista\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:20:44+0000",
+      "dateFinished": "2023-11-26T15:20:47+0000",
+      "dateStarted": "2023-11-26T15:20:44+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------------------------------+------+\n|Encaminhamento para Atendimento Especialista| count|\n+--------------------------------------------+------+\n|                                         Nao|879705|\n|                                         Sim|168870|\n+--------------------------------------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=48",
+              "$$hashKey": "object:25738"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012044747_1261469577",
+      "id": "paragraph_1701012044747_1261469577",
+      "dateCreated": "2023-11-26T15:20:44+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:24583",
+      "text": "\ndados.groupBy(\"Fezes/Urina\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:24:33+0000",
+      "dateFinished": "2023-11-26T15:21:46+0000",
+      "dateStarted": "2023-11-26T15:21:44+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+------+\n|         Fezes/Urina| count|\n+--------------------+------+\n|   SISTEMA DE ESGOTO|864152|\n|                null|124492|\n|       FOSSA SÉPTICA| 34493|\n|              OUTROS| 14075|\n|          CÉU ABERTO| 10306|\n|DIRETO PARA RIO, ...|   785|\n|    FOSSA RUDIMENTAR|   272|\n+--------------------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=51",
+              "$$hashKey": "object:25089"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012104214_290902098",
+      "id": "paragraph_1701012104214_290902098",
+      "dateCreated": "2023-11-26T15:21:44+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:24704",
+      "text": "dados.groupBy(\"Em Caso de Doença\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:22:18+0000",
+      "dateFinished": "2023-11-26T15:22:21+0000",
+      "dateStarted": "2023-11-26T15:22:18+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+------+\n|   Em Caso de Doença| count|\n+--------------------+------+\n|    UNIDADE DE SAUDE|449999|\n|UNIDADE DE SAUDE,...|147960|\n|HOSPITAL,UNIDADE ...|139804|\n|                null|123940|\n|            HOSPITAL| 61838|\n|              OUTROS| 48957|\n|FARMACIA,UNIDADE ...|  4914|\n|FARMACIA,HOSPITAL...|  4784|\n|OUTROS,UNIDADE DE...|  4746|\n|UNIDADE DE SAUDE,...|  4445|\n|HOSPITAL,FARMACIA...|  4317|\n|UNIDADE DE SAUDE,...|  4290|\n|UNIDADE DE SAUDE,...|  4140|\n|HOSPITAL,UNIDADE ...|  3864|\n|OUTROS,UNIDADE DE...|  3751|\n|OUTROS,HOSPITAL,U...|  3230|\n|HOSPITAL,OUTROS,U...|  3187|\n|UNIDADE DE SAUDE,...|  3101|\n|FARMACIA,UNIDADE ...|  3079|\n|UNIDADE DE SAUDE,...|  2997|\n+--------------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=52",
+              "$$hashKey": "object:25143"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012118573_1516831160",
+      "id": "paragraph_1701012118573_1516831160",
+      "dateCreated": "2023-11-26T15:21:58+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:24817",
+      "text": "dados.groupBy(\"Meio de Transporte\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:22:33+0000",
+      "dateFinished": "2023-11-26T15:22:35+0000",
+      "dateStarted": "2023-11-26T15:22:33+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+------+\n|  Meio de Transporte| count|\n+--------------------+------+\n|              ONIBUS|483038|\n|        ONIBUS,CARRO|312766|\n|                null|123912|\n|              OUTROS| 50006|\n|               CARRO| 41021|\n| OUTROS,ONIBUS,CARRO| 17507|\n|       OUTROS,ONIBUS|  7271|\n|     ONIBUS,CAMINHAO|  4105|\n|  ONIBUS,METRO,CARRO|  1680|\n|ONIBUS,CARRO,CAMI...|  1018|\n|        OUTROS,CARRO|  1015|\n|            CAMINHAO|   833|\n|OUTROS,ONIBUS,CAR...|   740|\n|               METRO|   652|\n|OUTROS,ONIBUS,MET...|   536|\n|OUTROS,ONIBUS,CAR...|   449|\n|ONIBUS,CARROCA,CA...|   410|\n|        OUTROS,METRO|   303|\n|      ONIBUS,CARROCA|   173|\n|      CARRO,CAMINHAO|   164|\n+--------------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=55",
+              "$$hashKey": "object:25423"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012124418_1688004313",
+      "id": "paragraph_1701012124418_1688004313",
+      "dateCreated": "2023-11-26T15:22:04+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:24936",
+      "text": "dados.groupBy(\"Cômodos\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:23:16+0000",
+      "dateFinished": "2023-11-26T15:23:18+0000",
+      "dateStarted": "2023-11-26T15:23:16+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+------+\n|Cômodos| count|\n+-------+------+\n|      5|412336|\n|      6|206523|\n|      4|154496|\n|      3| 59451|\n|      7| 57196|\n|      8| 41165|\n|   null| 39861|\n|      0| 21496|\n|      2| 17425|\n|     10| 12893|\n|      9| 10875|\n|      1|  5535|\n|     12|  3046|\n|     11|  1958|\n|     15|   955|\n|     13|   829|\n|     14|   599|\n|     20|   342|\n|     30|   252|\n|     16|   219|\n+-------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=56",
+              "$$hashKey": "object:25492"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012165160_610475075",
+      "id": "paragraph_1701012165160_610475075",
+      "dateCreated": "2023-11-26T15:22:45+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:25151",
+      "text": "dados.groupBy(\"Municício\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:23:35+0000",
+      "dateFinished": "2023-11-26T15:23:38+0000",
+      "dateStarted": "2023-11-26T15:23:35+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+-------+\n|           Municício|  count|\n+--------------------+-------+\n|            CURITIBA|1024001|\n|             COLOMBO|   7265|\n|             PINHAIS|   3650|\n| ALMIRANTE TAMANDARE|   3023|\n|  FAZENDA RIO GRANDE|   2947|\n|           PIRAQUARA|   1596|\n|SAO JOSE DOS PINHAIS|   1351|\n|         CAMPO LARGO|   1030|\n|           ARAUCARIA|    942|\n|         CAMPO MAGRO|    444|\n|            CASCAVEL|    217|\n|CAMPINA GRANDE DO...|    193|\n|   RIO BRANCO DO SUL|    137|\n|           ITAPERUCU|    115|\n|         MANDIRITUBA|    106|\n|           PARANAGUA|     91|\n|       QUATRO BARRAS|     90|\n|            MATINHOS|     84|\n|       NAO INFORMADO|     80|\n|           GUARATUBA|     67|\n+--------------------+-------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=57",
+              "$$hashKey": "object:25623"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012170740_1413218412",
+      "id": "paragraph_1701012170740_1413218412",
+      "dateCreated": "2023-11-26T15:22:50+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:25264",
+      "text": "dados.groupBy(\"Bairro\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:23:57+0000",
+      "dateFinished": "2023-11-26T15:24:00+0000",
+      "dateStarted": "2023-11-26T15:23:57+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------------+------+\n|           Bairro| count|\n+-----------------+------+\n|CIDADE INDUSTRIAL|144801|\n|    SITIO CERCADO| 88936|\n|           CAJURU| 63414|\n|        TATUQUARA| 51952|\n|          UBERABA| 43887|\n|        BOQUEIRAO| 41415|\n|      PINHEIRINHO| 36789|\n| CAMPO DE SANTANA| 32850|\n|   ALTO BOQUEIRAO| 32809|\n|            XAXIM| 32403|\n|      BAIRRO ALTO| 29344|\n|    SANTA CANDIDA| 27140|\n|       NOVO MUNDO| 27008|\n|       CAPAO RASO| 24610|\n|         SAO BRAZ| 17460|\n|           CENTRO| 16195|\n|       FAZENDINHA| 16000|\n| SANTA FELICIDADE| 15955|\n|   CAMPO COMPRIDO| 15840|\n|       PILARZINHO| 15242|\n+-----------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=59",
+              "$$hashKey": "object:25913"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012237572_1652219583",
+      "id": "paragraph_1701012237572_1652219583",
+      "dateCreated": "2023-11-26T15:23:57+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:25518",
+      "text": "\ndados.groupBy(\"Nacionalidade\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:25:28+0000",
+      "dateFinished": "2023-11-26T15:24:50+0000",
+      "dateStarted": "2023-11-26T15:24:48+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------+-------+\n|Nacionalidade|  count|\n+-------------+-------+\n|   Brasileira|1013566|\n|  Estrangeiro|  22321|\n|Não informado|  12570|\n| Naturalizado|    118|\n+-------------+-------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=60",
+              "$$hashKey": "object:25908"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012252762_836612831",
+      "id": "paragraph_1701012252762_836612831",
+      "dateCreated": "2023-11-26T15:24:12+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:25631",
+      "text": "dados.groupBy(\"origem_usuario\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:25:06+0000",
+      "dateFinished": "2023-11-26T15:25:09+0000",
+      "dateStarted": "2023-11-26T15:25:06+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------+-------+\n|origem_usuario|  count|\n+--------------+-------+\n|             1|1024001|\n|             2|  24574|\n+--------------+-------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=61",
+              "$$hashKey": "object:26038"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012306853_1036334200",
+      "id": "paragraph_1701012306853_1036334200",
+      "dateCreated": "2023-11-26T15:25:06+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:25806",
+      "text": "\ndados.groupBy(\"residente\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:26:12+0000",
+      "dateFinished": "2023-11-26T15:25:40+0000",
+      "dateStarted": "2023-11-26T15:25:38+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------+------+\n|residente| count|\n+---------+------+\n|        1|980270|\n|        2| 68305|\n+---------+------+\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://91a93370e7a5:4040/jobs/job?id=62",
+              "$$hashKey": "object:26145"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012338570_1302092528",
+      "id": "paragraph_1701012338570_1302092528",
+      "dateCreated": "2023-11-26T15:25:38+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:25921",
+      "text": "\ndados.groupBy(\"cod_profissional\").count().orderBy($\"count\".desc).show()",
+      "dateUpdated": "2023-11-26T15:26:13+0000",
+      "dateFinished": "2023-11-26T15:26:16+0000",
+      "dateStarted": "2023-11-26T15:26:13+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------------+-----+\n|cod_profissional|count|\n+----------------+-----+\n|           12652| 3540|\n|           43376| 3004|\n|           43581| 2915|\n|           90165| 2835|\n|           71091| 2762|\n|            3163| 2688|\n|          122123| 2589|\n|           80303| 2540|\n|           72083| 2501|\n|            3371| 2498|\n|           92050| 2428|\n|           98132| 2422|\n|          117997| 2351|\n|           78602| 2329|\n|          118448| 2311|\n|          100858| 2300|\n|           36783| 2263|\n|          115218| 2262|\n|           42571| 2259|\n|           35423| 2244|\n+----------------+-----+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1701012373866_1900661621",
+      "id": "paragraph_1701012373866_1900661621",
+      "dateCreated": "2023-11-26T15:26:13+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:26043"
+    }
+  ],
+  "name": "SUS",
+  "id": "2JGAEHX5M",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/SUS"
+}
